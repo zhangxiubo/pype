@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pype"
+version = "0.1.0"
+description = "A collection of utility classes and functions that enables chaining of function calls via piping syntax in Python."
+authors = ["Xiubo Zhang <zhangxiubo@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pype", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
