@@ -88,3 +88,15 @@ def head(count: int):
 def tail(count: int):
     return lambda x: list(x)[-count:]
 
+class Tee:
+
+    def __init__(self) -> None:
+        self.value = None
+
+    def __call__(self, value):
+        self.value = value
+        return value
+
+
+def tee():
+    return Tee()
