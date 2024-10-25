@@ -97,6 +97,8 @@ class Tee:
         self.value = value
         return value
 
-
 def tee():
     return Tee()
+
+def sliding(iterable, window_size, stride):
+    yield from zip(*(itertools.islice(iterable, i, None, stride) for i in range(window_size)))
