@@ -1,7 +1,7 @@
 
-
 from dataclasses import dataclass
-import itertools 
+import itertools
+
 
 @dataclass(frozen=True)
 class Box:
@@ -102,3 +102,6 @@ def tee():
 
 def sliding(iterable, window_size, stride):
     yield from zip(*(itertools.islice(iterable, i, None, stride) for i in range(window_size)))
+
+
+from pype.partitioner import all_partitions 
