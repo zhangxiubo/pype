@@ -79,7 +79,7 @@ def tail(count: int):
 def sort_(key_func):
     return lambda seq: sorted(seq, key=lambda e: key_func(e))
 
-def sort_(key_func):
+def sortx(key_func):
     return lambda seq: sorted(seq, key=lambda e: key_func(*e))
 
 
