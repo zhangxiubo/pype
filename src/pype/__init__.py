@@ -100,8 +100,17 @@ class Tee:
 def tee():
     return Tee()
 
+
 def sliding(iterable, window_size, stride):
     yield from zip(*(itertools.islice(iterable, i, None, stride) for i in range(window_size)))
+
+
+def sortx(key_func):
+    return lambda seq: sorted(seq, key=lambda e: key_func(*e))
+
+
+def filterx(pred_func):
+    return lambda seq: filter(lambda e: pred_func(*e), seq)
 
 
 from pype.partitioner import all_partitions 
