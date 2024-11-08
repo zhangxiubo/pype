@@ -76,9 +76,15 @@ def tail(count: int):
     return lambda x: list(x)[-count:]
 
 
-def sortx(key_func):
+def sort_(key_func):
+    return lambda seq: sorted(seq, key=lambda e: key_func(e))
+
+def sort_(key_func):
     return lambda seq: sorted(seq, key=lambda e: key_func(*e))
 
+
+def filter_(pred_func):
+    return lambda seq: filter(lambda e: pred_func(e), seq)
 
 def filterx(pred_func):
     return lambda seq: filter(lambda e: pred_func(*e), seq)
