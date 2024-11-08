@@ -68,25 +68,22 @@ def flatmapxx(xs, f):
     yield from itertools.chain.from_iterable(f(**x) for x in xs)
 
 
-@Infix
-def filter(xs, f):
-    yield from (x for x in xs if f(x))
-
-@Infix
-def filterx(xs, f):
-    yield from (x for x in xs if f(*x))
-
-@Infix
-def filterxx(xs, f):
-    yield from (x for x in xs if f(**x))
-
-
 def head(count: int):
     return lambda x: list(x)[:count]
 
 
 def tail(count: int):
     return lambda x: list(x)[-count:]
+
+
+def sortx(key_func):
+    return lambda seq: sorted(seq, key=lambda e: key_func(*e))
+
+
+def filterx(pred_func):
+    return lambda seq: filter(lambda e: pred_func(*e), seq)
+
+
 
 class Tee:
 
@@ -103,14 +100,6 @@ def tee():
 
 def sliding(iterable, window_size, stride):
     yield from zip(*(itertools.islice(iterable, i, None, stride) for i in range(window_size)))
-
-
-def sortx(key_func):
-    return lambda seq: sorted(seq, key=lambda e: key_func(*e))
-
-
-def filterx(pred_func):
-    return lambda seq: filter(lambda e: pred_func(*e), seq)
 
 
 from pype.partitioner import all_partitions 
