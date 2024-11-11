@@ -90,6 +90,19 @@ def filterx(pred_func):
     return lambda seq: filter(lambda e: pred_func(*e), seq)
 
 
+def groupby_(key_func):
+    return lambda seq: itertools.groupby(sorted(seq, key=lambda e: key_func(e)), key=lambda e: key_func(e))
+
+def groupbyx(key_func):
+    return lambda seq: itertools.groupby(sorted(seq, key=lambda e: key_func(*e)), key=lambda e: key_func(*e))
+
+
+def list_len(iterable):
+    return len(list(iterable))
+
+def set_len(iterable):
+    return len(set(iterable))
+
 
 class Tee:
 
