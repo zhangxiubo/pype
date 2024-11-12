@@ -103,6 +103,18 @@ def list_len(iterable):
 def set_len(iterable):
     return len(set(iterable))
 
+def first(iterable):
+    return next(iter(iterable))
+
+def dict_get(key, default=None):
+    return lambda collection: collection.get(key, default=default)
+
+def list_get(index):
+    return lambda collection: collection[index]
+
+def get(key):
+    return lambda collection: collection[key]
+
 
 class Tee:
 
